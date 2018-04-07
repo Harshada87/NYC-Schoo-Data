@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NYC Schools SAT Data</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

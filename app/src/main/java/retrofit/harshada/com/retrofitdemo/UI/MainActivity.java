@@ -19,6 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+/* This activity shows complete list of NYC High school  **/
 
 public class MainActivity extends AppCompatActivity  {
     private ListView listView;
@@ -31,8 +32,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-     //   listView = (ListView) findViewById(R.id.lv);
-        rv = (RecyclerView) findViewById(R.id.card_recycleView);
+        rv = findViewById(R.id.card_recycleView);
         rv.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         rv.setLayoutManager(layoutManager);
@@ -42,18 +42,18 @@ public class MainActivity extends AppCompatActivity  {
 
         Retrofit retrofit = builder.build();
 
+        /* Creating Retrofit client**/
         NYCDataClient client = retrofit.create(NYCDataClient.class);
-        Call<List<SchoolListRepo>> call = client.reposForUser("97mf-9njv.json");//("fs-opensource");
-
+        /*Enque call request for retrofit**/
+        Call<List<SchoolListRepo>> call = client.reposForUser("97mf-9njv.json");
         call.enqueue(new Callback<List<SchoolListRepo>>() {
             @Override
             public void onResponse(Call<List<SchoolListRepo>> call, Response<List<SchoolListRepo>> response) {
                 List<SchoolListRepo> repos = response.body();
-                // listView.setAdapter(new GitHubRepoAdapter(MainActivity.this, repos));
+               /* Seetting Custom adapter with NYC school list*/
                 adapter = new DataAdapter((ArrayList<SchoolListRepo>) repos);
                 rv.setAdapter(adapter);
             }
-
             @Override
             public void onFailure(Call<List<SchoolListRepo>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Error :(", Toast.LENGTH_SHORT).show();

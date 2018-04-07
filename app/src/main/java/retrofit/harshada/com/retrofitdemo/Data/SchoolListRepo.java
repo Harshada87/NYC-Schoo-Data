@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 import retrofit.harshada.com.retrofitdemo.UI.MainActivity;
-
+/*POJO class for NYC High school list**/
 public class SchoolListRepo {
 
     @SerializedName("dbn")
@@ -15,14 +15,9 @@ public class SchoolListRepo {
     @SerializedName("school_name")
     @Expose
     private String schoolName;
-
-
-
     @SerializedName("location")
     @Expose
     private String location;
-
-
     public SchoolListRepo(MainActivity mainActivity, List<SchoolListRepo> repos) {
         this.dbn = dbn;
         this.schoolName = schoolName;

@@ -18,11 +18,11 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
     private MainActivity sActivity = null;
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         sActivity = mainActivityActivityTestRule.getActivity();
     }
     @Test
-    public void onCreate() throws Exception {
+    public void onCreate() {
        View view = sActivity.findViewById(R.id.card_recycleView);
   //  assertThat(view, is(not(null)));
        onView(withId(R.id.card_recycleView));
@@ -30,7 +30,7 @@ public class MainActivityTest {
 
     }
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         sActivity = null;
     }
 }

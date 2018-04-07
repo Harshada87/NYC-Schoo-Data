@@ -7,18 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import retrofit.harshada.com.retrofitdemo.Data.SchoolDetailRepo;
 import retrofit.harshada.com.retrofitdemo.R;
 import retrofit.harshada.com.retrofitdemo.UI.SchoolSatActivity;
-
+/*Custom adapter for NYC High school SAT detail */
 public class SchoolDetailAdapter extends RecyclerView.Adapter<SchoolDetailAdapter.ViewHolder> {
     private ArrayList<SchoolDetailRepo> android;
-    private RecyclerView recyclerView;
-
-
     public SchoolDetailAdapter(ArrayList<SchoolDetailRepo> android) {
         this.android = android;
     }
@@ -26,10 +21,9 @@ public class SchoolDetailAdapter extends RecyclerView.Adapter<SchoolDetailAdapte
     @Override
     public SchoolDetailAdapter.ViewHolder onCreateViewHolder(final ViewGroup viewGroup, int i) {
         final View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_pagination, viewGroup, false);
-
         return new ViewHolder(view);
     }
-
+/*Setting values */
     @Override
     public void onBindViewHolder(SchoolDetailAdapter.ViewHolder viewHolder,  int i) {
 
@@ -38,30 +32,24 @@ public class SchoolDetailAdapter extends RecyclerView.Adapter<SchoolDetailAdapte
         viewHolder.tv_total.setText("SAT Total Test Takers :"+android.get(i).getTotalSatTestTakers());
         viewHolder.tv_read.setText("SAT Reading Avg :"+android.get(i).getReadingAvg());
         viewHolder.tv_write.setText("SAt Writing Avg :"+android.get(i).getWritingAvg());
-
-
     }
 
     @Override
     public int getItemCount() {
        return  (android == null) ? 0 : android.size();
-      //  return android.size();
+
     }
-
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_name,tv_math,tv_total, tv_read, tv_write;
 
         public ViewHolder(final View view) {
             super(view);
 
-            tv_name = (TextView)view.findViewById(R.id.tvSName);
-            tv_math = (TextView)view.findViewById(R.id.tvsMathAvg);
-            tv_total = (TextView)view.findViewById(R.id.tvStotal);
-            tv_read = (TextView)view.findViewById(R.id.tvSreadAvg);
-            tv_write = (TextView)view.findViewById(R.id.tvSwriteAvg);
-
-
+            tv_name = view.findViewById(R.id.tvSName);
+            tv_math = view.findViewById(R.id.tvsMathAvg);
+            tv_total = view.findViewById(R.id.tvStotal);
+            tv_read = view.findViewById(R.id.tvSreadAvg);
+            tv_write = view.findViewById(R.id.tvSwriteAvg);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -76,8 +64,5 @@ public class SchoolDetailAdapter extends RecyclerView.Adapter<SchoolDetailAdapte
                 }
             });
         }
-
-
     }
-
 }

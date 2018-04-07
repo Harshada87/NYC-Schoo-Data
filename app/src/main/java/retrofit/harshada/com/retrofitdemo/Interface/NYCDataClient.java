@@ -8,8 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface NYCDataClient {
-
-   // @GET("/users/{user}/repos")
+/* setting NYC High school list client**/
     @GET("/resource/{user}")
     Call<List<SchoolListRepo>> reposForUser(@Path("user")String user);
 }

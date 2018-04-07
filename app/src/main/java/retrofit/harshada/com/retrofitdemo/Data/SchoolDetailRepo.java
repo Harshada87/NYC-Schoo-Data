@@ -4,17 +4,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import retrofit.harshada.com.retrofitdemo.UI.SchoolDetailActivity;
-
-
-//[{"dbn":"01M292",
-// "num_of_sat_test_takers":"29",
-// "sat_critical_reading_avg_score":"355",
-// "sat_math_avg_score":"404",
-// "sat_writing_avg_score":"363",
-// "school_name":"HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES"}]
-
+/*POJO class for NYC High school SAT details**/
 public class SchoolDetailRepo {
-
 
     @SerializedName("dbn")
     @Expose
