@@ -10,8 +10,5 @@ import retrofit2.http.Path;
 public interface SchoolDetailClient {
     /* setting NYC High school SAT list client**/
     @GET("/resource/{user}")
-
     Call<List<SchoolDetailRepo>> reposForUser(@Path("user") String user);
-
-
 }

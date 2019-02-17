@@ -17,9 +17,11 @@ import retrofit.harshada.com.retrofitdemo.UI.SchoolDetailActivity;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     private ArrayList<SchoolListRepo> android;
     private RecyclerView recyclerView;
+
     public DataAdapter(ArrayList<SchoolListRepo> android) {
         this.android = android;
     }
+
     @Override
     public DataAdapter.ViewHolder onCreateViewHolder(final ViewGroup viewGroup, int i) {
         final View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_row, viewGroup, false);
@@ -27,18 +29,20 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(DataAdapter.ViewHolder viewHolder,  int i) {
+    public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
         viewHolder.tv_name.setText(android.get(i).getSchoolName());
-        viewHolder.tv_version.setText("DBN : "+android.get(i).getDbn());
-        viewHolder.tv_api_level.setText("Address : "+android.get(i).getLocation());
+        viewHolder.tv_version.setText("DBN : " + android.get(i).getDbn());
+        viewHolder.tv_api_level.setText("Address : " + android.get(i).getLocation());
     }
 
     @Override
     public int getItemCount() {
         return android.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_name,tv_version,tv_api_level;
+        private TextView tv_name, tv_version, tv_api_level;
+
         public ViewHolder(final View view) {
             super(view);
 

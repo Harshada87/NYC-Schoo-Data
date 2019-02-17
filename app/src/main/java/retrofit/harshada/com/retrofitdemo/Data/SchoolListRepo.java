@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 import retrofit.harshada.com.retrofitdemo.UI.MainActivity;
+
 /*POJO class for NYC High school list**/
 public class SchoolListRepo {
 
@@ -18,6 +19,7 @@ public class SchoolListRepo {
     @SerializedName("location")
     @Expose
     private String location;
+
     public SchoolListRepo(MainActivity mainActivity, List<SchoolListRepo> repos) {
         this.dbn = dbn;
         this.schoolName = schoolName;
@@ -31,6 +33,7 @@ public class SchoolListRepo {
     public String getSchoolName() {
         return schoolName;
     }
+
     public void setDbn(String dbn) {
         this.dbn = dbn;
     }
@@ -38,6 +41,7 @@ public class SchoolListRepo {
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
     }
+
     public String getLocation() {
         return location;
     }

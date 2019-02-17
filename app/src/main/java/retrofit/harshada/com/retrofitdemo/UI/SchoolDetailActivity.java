@@ -23,11 +23,12 @@ public class SchoolDetailActivity extends Activity {
     private String url = "https://data.cityofnewyork.us/";
     private RecyclerView rv;
     private SchoolDetailAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-initView();
+        initView();
     }
 
     private void initView() {
@@ -43,10 +44,7 @@ initView();
 
         SchoolDetailClient client = retrofit.create(SchoolDetailClient.class);
 
-       Call<List<SchoolDetailRepo>> call = client.reposForUser("734v-jeq5.json");
-
-
-
+        Call<List<SchoolDetailRepo>> call = client.reposForUser("734v-jeq5.json");
 
         call.enqueue(new Callback<List<SchoolDetailRepo>>() {
             @Override

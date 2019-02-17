@@ -13,12 +13,12 @@ import retrofit.harshada.com.retrofitdemo.R;
 import retrofit.harshada.com.retrofitdemo.Data.SchoolListRepo;
 
 
-public class GitHubRepoAdapter extends ArrayAdapter<SchoolListRepo> {
+public class SchoolListAdapter extends ArrayAdapter<SchoolListRepo> {
 
     private Context context;
     private List<SchoolListRepo> values;
 
-    public GitHubRepoAdapter(Context context, List<SchoolListRepo> values) {
+    public SchoolListAdapter(Context context, List<SchoolListRepo> values) {
         super(context, R.layout.list_item_pagination, values);
 
         this.context = context;

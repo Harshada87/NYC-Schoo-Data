@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import retrofit.harshada.com.retrofitdemo.UI.SchoolDetailActivity;
+
 /*POJO class for NYC High school SAT details**/
 public class SchoolDetailRepo {
 
@@ -30,7 +31,8 @@ public class SchoolDetailRepo {
     @SerializedName("sat_writing_avg_score")
     @Expose
     private String writingAvg;
-    public SchoolDetailRepo(SchoolDetailActivity schoolDetailActivity,String dbn, String schoolName, String totalSatTestTakers, String readingAvg, String mathAvg, String writingAvg) {
+
+    public SchoolDetailRepo(SchoolDetailActivity schoolDetailActivity, String dbn, String schoolName, String totalSatTestTakers, String readingAvg, String mathAvg, String writingAvg) {
         this.dbn = dbn;
         this.schoolName = schoolName;
         this.totalSatTestTakers = totalSatTestTakers;
@@ -38,6 +40,7 @@ public class SchoolDetailRepo {
         this.mathAvg = mathAvg;
         this.writingAvg = writingAvg;
     }
+
     public String getDbn() {
         return dbn;
     }
@@ -85,10 +88,6 @@ public class SchoolDetailRepo {
     public void setWritingAvg(String writingAvg) {
         this.writingAvg = writingAvg;
     }
-
-
-
-
 
 
 }

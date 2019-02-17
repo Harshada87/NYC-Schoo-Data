@@ -21,17 +21,19 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 /* This activity shows complete list of NYC High school  **/
 
-public class MainActivity extends AppCompatActivity  {
-    private ListView listView;
+public class MainActivity extends AppCompatActivity {
     private String url = "https://data.cityofnewyork.us/";
     private RecyclerView rv;
     private DataAdapter adapter;
-    private List<SchoolListRepo> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
+
+    private void init() {
         rv = findViewById(R.id.card_recycleView);
         rv.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -50,17 +52,16 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onResponse(Call<List<SchoolListRepo>> call, Response<List<SchoolListRepo>> response) {
                 List<SchoolListRepo> repos = response.body();
-               /* Seetting Custom adapter with NYC school list*/
+                /* Seetting Custom adapter with NYC school list*/
                 adapter = new DataAdapter((ArrayList<SchoolListRepo>) repos);
                 rv.setAdapter(adapter);
             }
+
             @Override
             public void onFailure(Call<List<SchoolListRepo>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Error :(", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
 }
